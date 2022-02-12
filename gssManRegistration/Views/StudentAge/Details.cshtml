@@ -1,0 +1,58 @@
+﻿@model gssManRegistration.Models.tbl_studentages
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_studentages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.studentid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dobday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dobday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dobmoth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dobmoth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dobyear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dobyear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

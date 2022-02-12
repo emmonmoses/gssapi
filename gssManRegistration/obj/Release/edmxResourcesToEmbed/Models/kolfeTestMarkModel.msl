@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kolfeTestMarkModelStoreContainer" CdmEntityContainer="kolfeMarkDbContext">
+    <EntitySetMapping Name="testmarks20212022">
+      <EntityTypeMapping TypeName="kolfeTestMarkModel.testmarks20212022">
+        <MappingFragment StoreEntitySet="testmarks20212022">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="markid" ColumnName="markid" />
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="weeknumber" ColumnName="weeknumber" />
+          <ScalarProperty Name="quarternumber" ColumnName="quarternumber" />
+          <ScalarProperty Name="academicyear" ColumnName="academicyear" />
+          <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+          <ScalarProperty Name="subjectname" ColumnName="subjectname" />
+          <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+          <ScalarProperty Name="dateupdated" ColumnName="dateupdated" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="markvalue" ColumnName="markvalue" />
+          <ScalarProperty Name="addedbyuserid" ColumnName="addedbyuserid" />
+          <ScalarProperty Name="updatedbyuserid" ColumnName="updatedbyuserid" />
+          <ScalarProperty Name="flagged" ColumnName="flagged" />
+          <ScalarProperty Name="outofmark" ColumnName="outofmark" />
+          <ScalarProperty Name="testtype" ColumnName="testtype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="weeklymarks20212022">
+      <EntityTypeMapping TypeName="kolfeTestMarkModel.weeklymarks20212022">
+        <MappingFragment StoreEntitySet="weeklymarks20212022">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="markid" ColumnName="markid" />
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="weeknumber" ColumnName="weeknumber" />
+          <ScalarProperty Name="quarternumber" ColumnName="quarternumber" />
+          <ScalarProperty Name="acyear" ColumnName="acyear" />
+          <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+          <ScalarProperty Name="subjectname" ColumnName="subjectname" />
+          <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+          <ScalarProperty Name="dateupdated" ColumnName="dateupdated" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="markvalue" ColumnName="markvalue" />
+          <ScalarProperty Name="addedbyuserid" ColumnName="addedbyuserid" />
+          <ScalarProperty Name="updatedbyuserid" ColumnName="updatedbyuserid" />
+          <ScalarProperty Name="flagged" ColumnName="flagged" />
+          <ScalarProperty Name="outofpoints" ColumnName="outofpoints" />
+          <ScalarProperty Name="quizorhomework" ColumnName="quizorhomework" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
