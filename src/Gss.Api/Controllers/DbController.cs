@@ -23,16 +23,8 @@ public class DbController : ControllerBase
 
         string branch = context.HttpContext.Request.Query["branch"];
         string academicyear = context.HttpContext.Request.Query["academicyear"];
-            
-        try
-        {
-            _dbContext = new MarkDbContext($"gssmarks{academicyear}{branch}", academicyear);
-        }
-        catch (System.Exception)
-        {
-            // db instantiation failed
-            Console.WriteLine("\r\n db instantiation failed :(  \r\n");
-        }
+
+        _dbContext = new MarkDbContext($"gssmarks{academicyear}{branch}", academicyear);
     }
 
 
