@@ -11,8 +11,8 @@ namespace Gss.Data.SqlServer
 
         public MarkDbContext(string database, string academicyear)
         {
-            var server = DbOptionsHelper.GetDatabaseOptions().Server;
-            _connectionString = $"data source={server};initial catalog={database};User Id=sa;Password=Master_098;integrated security=false;MultipleActiveResultSets=True;";
+            var dbOptions = DbOptionsHelper.GetDatabaseOptions();
+            _connectionString = $"data source={dbOptions.Server};initial catalog={database};User Id={dbOptions.UserId};Password={dbOptions.Password};integrated security=false;MultipleActiveResultSets=True;";
             _academicyear = academicyear;
             // _tableName = tableName;
         }
