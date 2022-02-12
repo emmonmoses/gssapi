@@ -9,7 +9,7 @@ namespace Gss.Api.Controllers;
 public class DbController : ControllerBase
 {
     private readonly ILogger<DbController> _logger;
-    private readonly MarkDbContext? _dbContext;
+    private readonly MarkDbContext _dbContext = default!;
 
     public DbController(ILogger<DbController> logger, IHttpContextAccessor context)
     {
@@ -23,9 +23,15 @@ public class DbController : ControllerBase
 
         string branch = context.HttpContext.Request.Query["branch"];
         string academicyear = context.HttpContext.Request.Query["academicyear"];
-        if (!string.IsNullOrWhiteSpace(branch) && !string.IsNullOrWhiteSpace(academicyear))
+            
+        try
         {
             _dbContext = new MarkDbContext($"gssmarks{academicyear}{branch}", academicyear);
+        }
+        catch (System.Exception)
+        {
+            // db instantiation failed
+            Console.WriteLine("\r\n db instantiation failed :(  \r\n");
         }
     }
 
@@ -89,7 +95,7 @@ public class DbController : ControllerBase
         var database = $"gssmarks{academicyear}lafto";
         var tableName = $"testmarks{academicyear}";
         var db = new MarkDbContext(database, academicyear);
-        var result = db.WeeklyMarks;// db.GetRecords<TestMark>();
+        var result = db.TestMarks;// db.GetRecords<TestMark>();
 
         return Ok(result);
     }
