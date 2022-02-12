@@ -1,3 +1,4 @@
+using EFCore.BulkExtensions;
 using Gss.Data.SqlServer;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,10 @@ public class DbController : ControllerBase
         }
     }
 
+
+    /// <summary>
+    /// DbContext created with Dependency Injection
+    /// </summary>
     [HttpGet]
     [Route("DI")]
     public IActionResult Get(string branch, string academicyear)
@@ -35,12 +40,32 @@ public class DbController : ControllerBase
         if (_dbContext is not null)
         {
             var result = _dbContext.WeeklyMarks;
+            
+            // Bulk Insert entities [NOT TESTED]
+            // _dbContext.BulkInsert(result!.ToList(), options => 
+            // {
+            //     // TODO: using a different nuget package here,
+            //     // https://github.com/borisdj/EFCore.BulkExtensions,
+            //     // hence the lines below don't work
+            //     // options.InsertIfNotExists = true;
+            //     // options.ColumnPrimaryKeyExpression = ma => new 
+            //     // { 
+            //     //     ma.acyear
+            //     // };
+            //     options.IncludeGraph = true;
+            //     options.PropertiesToIncludeOnCompare = new List<string> { "subjectid" };
+            // });
+
             return Ok(result);
         }
 
         return BadRequest();
     }
 
+
+    /// <summary>
+    /// DbContext is created on controller level
+    /// </summary>
     [HttpGet(Name = "GetWeeklyMarks")]
     [Route("WeeklyMarks")]
     public IActionResult GetWeeklyMarks(string academicyear)
@@ -53,6 +78,10 @@ public class DbController : ControllerBase
         return Ok(result);
     }
 
+
+    /// <summary>
+    /// DbContext is created on controller level
+    /// </summary>
     [HttpGet(Name = "GetTestMarks")]
     [Route("TestMarks")]
     public IActionResult GetTestMarks(string academicyear)
