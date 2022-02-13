@@ -1,5 +1,5 @@
-using EFCore.BulkExtensions;
 using Gss.Data.SqlServer;
+using Gss.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gss.Api.Controllers;
@@ -38,22 +38,6 @@ public class DbController : ControllerBase
         if (_dbContext is not null)
         {
             var result = _dbContext.WeeklyMarks;
-            
-            // Bulk Insert entities [NOT TESTED]
-            // _dbContext.BulkInsert(result!.ToList(), options => 
-            // {
-            //     // TODO: using a different nuget package here,
-            //     // https://github.com/borisdj/EFCore.BulkExtensions,
-            //     // hence the lines below don't work
-            //     // options.InsertIfNotExists = true;
-            //     // options.ColumnPrimaryKeyExpression = ma => new 
-            //     // { 
-            //     //     ma.acyear
-            //     // };
-            //     options.IncludeGraph = true;
-            //     options.PropertiesToIncludeOnCompare = new List<string> { "subjectid" };
-            // });
-
             return Ok(result);
         }
 
@@ -62,23 +46,23 @@ public class DbController : ControllerBase
 
 
     /// <summary>
-    /// DbContext is created on controller level
+    /// DbContext is created on controller action level
     /// </summary>
     [HttpGet(Name = "GetWeeklyMarks")]
     [Route("WeeklyMarks")]
-    public IActionResult GetWeeklyMarks(string academicyear)
+    public IActionResult GetWeeklyMarks(string academicyear, string branch)
     {
-        var database = $"gssmarks{academicyear}lafto";
+        var database = $"gssmarks{academicyear}{branch}";
         var tableName = $"weeklymarks{academicyear}";
         var db = new MarkDbContext(database, academicyear);
-        var result = db.WeeklyMarks;// db.GetRecords<WeeklyMark>();
+        var result = db.GetRecords<WeeklyMark>();
 
         return Ok(result);
     }
 
 
     /// <summary>
-    /// DbContext is created on controller level
+    /// DbContext is created on controller action level
     /// </summary>
     [HttpGet(Name = "GetTestMarks")]
     [Route("TestMarks")]

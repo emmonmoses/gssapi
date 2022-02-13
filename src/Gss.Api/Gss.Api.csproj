@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Gss.Models\Gss.Models.csproj" />
     <ProjectReference Include="..\Gss.Data.SqlServer\Gss.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\Gss.Services.Common\Gss.Services.Common.csproj" />
   </ItemGroup>
 
 </Project>
