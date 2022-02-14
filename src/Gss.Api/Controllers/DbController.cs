@@ -31,8 +31,7 @@ public class DbController : ControllerBase
     /// <summary>
     /// DbContext created with Dependency Injection
     /// </summary>
-    [HttpGet]
-    [Route("DI")]
+    [HttpGet("DI")]
     public IActionResult Get(string branch, string academicyear)
     {
         if (_dbContext is not null)
@@ -48,8 +47,7 @@ public class DbController : ControllerBase
     /// <summary>
     /// DbContext is created on controller action level
     /// </summary>
-    [HttpGet(Name = "GetWeeklyMarks")]
-    [Route("WeeklyMarks")]
+    [HttpGet("WeeklyMarks", Name = "GetWeeklyMarks")]
     public IActionResult GetWeeklyMarks(string academicyear, string branch)
     {
         var database = $"gssmarks{academicyear}{branch}";
@@ -64,11 +62,10 @@ public class DbController : ControllerBase
     /// <summary>
     /// DbContext is created on controller action level
     /// </summary>
-    [HttpGet(Name = "GetTestMarks")]
-    [Route("TestMarks")]
-    public IActionResult GetTestMarks(string academicyear)
+    [HttpGet("TestMarks", Name = "GetTestMarks")]
+    public IActionResult GetTestMarks(string academicyear, string branch)
     {
-        var database = $"gssmarks{academicyear}lafto";
+        var database = $"gssmarks{academicyear}{branch}";
         var tableName = $"testmarks{academicyear}";
         var db = new MarkDbContext(database, academicyear);
         var result = db.TestMarks;// db.GetRecords<TestMark>();

@@ -11,41 +11,19 @@ namespace Gss.Data.SqlServer
         {
             var dbOptions = DbOptionsHelper.GetDatabaseOptions();
             _connectionString = $"data source={dbOptions.Server};initial catalog=gssmandb;User Id={dbOptions.UserId};Password={dbOptions.Password};integrated security={dbOptions.IntegratedSecurity};MultipleActiveResultSets={dbOptions.MultipleActiveResultSets};";
-        }
-
-        // public MarkDbContext(string connectionString) : base(new DbContextOptionsBuilder().UseSqlServer(connectionString).Options)
-        // {
-
-        // }
-
-        // declaration is necessary if GetRecords uses Option 1
+        }       
         public virtual DbSet<Student>? Students { get; set; }
         public virtual DbSet<User>? Users { get; set; }
-
-        
+        public virtual DbSet<UserDetail>? UserDetails { get; set; }
+        public virtual DbSet<Branch>? Branches { get; set; }
+        public virtual DbSet<Registration>? Registrations { get; set; }
+        public virtual DbSet<StudentAge>? StudentAges { get; set; }
+        public virtual DbSet<StudentDetail>? StudentDetails { get; set; }
+        public virtual DbSet<StudentExtraDetail>? StudentExtraDetails { get; set; }
+        public virtual DbSet<StudentExtraDetailMore>? StudentExtraDetailMores { get; set; }
         public DbSet<T> GetRecords<T>() where T : class
-        {
-            /// <remarks>
-            /// Option 1
-            /// returns DbSet<T>
-            /// </remarks>
-            return this.Set<T>();
-
-            /// <remarks>
-            /// Option 2
-            /// returns IQueryable<T>
-            /// and we have no access to DbSet methods e.g. .Add() or .Remove()
-            /// </remarks>
-            // var dictionary = new Dictionary<string, Func<MarkDbContext, IQueryable<T>>>()
-            // {
-            //     { _tableName, (MarkDbContext context ) => context.Set<T>() }
-            // };
-
-            // var dbSet = dictionary[_tableName].Invoke(this);
-            
-            // return type is IQueryable<T>
-            // but we have no access to DbSet methods e.g. .Add() or .Remove()
-            // return dbSet;
+        {            
+            return this.Set<T>();          
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -57,10 +35,16 @@ namespace Gss.Data.SqlServer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // dynamically map the table names based on academic year
+            
             modelBuilder.Entity<Student>().ToTable($"tbl_student");
             modelBuilder.Entity<User>().ToTable($"tbl_user");
+            modelBuilder.Entity<UserDetail>().ToTable($"userdetail");
+            modelBuilder.Entity<Branch>().ToTable($"branches");
+            modelBuilder.Entity<Registration>().ToTable($"registrations");
+            modelBuilder.Entity<StudentAge>().ToTable($"tbl_studentages");
+            modelBuilder.Entity<StudentDetail>().ToTable($"tbl_studentdetail");
+            modelBuilder.Entity<StudentExtraDetail>().ToTable($"tbl_studentexdetail");
+            modelBuilder.Entity<StudentExtraDetailMore>().ToTable($"tbl_studentexdetailmore");
         }
     }
 }

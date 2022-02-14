@@ -6,18 +6,28 @@ namespace Gss.Data.SqlServer
     {
         public static DatabaseOptions GetDatabaseOptions()
         {
-            var parentDir = Directory.GetParent(Directory.GetCurrentDirectory());
-            var basePath = Path.Combine(parentDir!.FullName, "Gss.Api");
+            try
+            {
+                //Console.WriteLine(Directory.GetCurrentDirectory());
+                var parentDir = Directory.GetParent(Directory.GetCurrentDirectory());
+                var basePath = Directory.GetCurrentDirectory(); // Path.Combine(parentDir!.FullName, "Gss.Api");
 
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(basePath)
-                .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", true)
-                .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables();
+                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(basePath)
+                    .AddJsonFile($"appsettings.{env}.json", true)
+                    .AddJsonFile("appsettings.json")
+                    .AddEnvironmentVariables();
 
-            var config = builder.Build();
+                var config = builder.Build();
 
-            return config.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
+                return config.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"shit \t {ex} \r\n");
+                return new DatabaseOptions();
+            }
         }
     }
 }
