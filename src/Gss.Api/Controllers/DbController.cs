@@ -52,7 +52,7 @@ public class DbController : ControllerBase
         var database = $"gssmarks{academicyear}{branch}";
         var tableName = $"weeklymarks{academicyear}";
         var db = new MarkDbContext(database, academicyear);
-        var result = db.GetRecords<WeeklyMark>();
+        var result = db.WeeklyMarks; // db.GetRecords<WeeklyMark>();
 
         return Ok(result);
     }
