@@ -1,0 +1,82 @@
+﻿@model gssManRegistration.Models.userdetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>userdetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usertype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usertype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwordchangedon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwordchangedon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastseenon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastseenon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwordchangefrequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwordchangefrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accountstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accountstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tag)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<gssManRegistration.Models.tbl_studentages>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.studentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dobday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dobmoth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dobyear)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.studentid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dobday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dobmoth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dobyear)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

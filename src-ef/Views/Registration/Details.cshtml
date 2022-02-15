@@ -1,0 +1,82 @@
+﻿@model gssManRegistration.Models.registrations
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>registrations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.regid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.studentid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.academicyear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.academicyear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tag)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
