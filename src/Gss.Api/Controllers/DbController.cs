@@ -31,17 +31,16 @@ public class DbController : ControllerBase
     /// <summary>
     /// DbContext created with Dependency Injection
     /// </summary>
-    [HttpGet("DI")]
-    public IActionResult Get(string branch, string academicyear)
-    {
-        if (_dbContext is not null)
-        {
-            var result = _dbContext.WeeklyMarks;
-            return Ok(result);
-        }
-
-        return BadRequest();
-    }
+    //[HttpGet("DI")]
+    //public IActionResult Get(string branch, string academicyear)
+    //{
+    //    if (_dbContext is not null)
+    //    {
+    //        var result = _dbContext.WeeklyMarks;
+    //        return Ok(result);
+    //    }
+    //    return BadRequest();
+    //}
 
 
     /// <summary>
