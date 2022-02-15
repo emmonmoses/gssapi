@@ -14,7 +14,7 @@ public class DbController : ControllerBase
     public DbController(ILogger<DbController> logger, IHttpContextAccessor context)
     {
         _logger = logger;
-        
+
         foreach (var r in context.HttpContext?.Request?.Query!)
         {
             // you could use this to dynamically create the context you want
