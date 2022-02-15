@@ -17,11 +17,10 @@ public class LoginController : ControllerBase
         try
         {
             //string hashedPassword = new Encrypter().ComputeMD5Hash(user.userpassword);
-            //if (user.username != "")
-
+            //if (user?.username != "")
             if (user?.username == "iqdagmawi")
             {
-                // User userObj = _dbContext.Users?.Where(u => u.username == user.username
+                // User? userObj = _dbContext.Users?.Where(u => u.username == user.username
                 //&& u.userpassword == hashedPassword).FirstOrDefault();
 
                 User? userObj = _dbContext.Users?.Where(u => u.username == user.username).FirstOrDefault();
