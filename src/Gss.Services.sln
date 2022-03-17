@@ -1,23 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gss.Data.SqlServer", "Gss.Data.SqlServer\Gss.Data.SqlServer.csproj", "{92D02D15-E879-41EE-8FD0-9BFD304B93D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gss.Data.SqlServer", "Gss.Data.SqlServer\Gss.Data.SqlServer.csproj", "{92D02D15-E879-41EE-8FD0-9BFD304B93D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gss.Api", "Gss.Api\Gss.Api.csproj", "{47B83AFD-43BA-451C-8412-D60F182A8A77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gss.Api", "Gss.Api\Gss.Api.csproj", "{47B83AFD-43BA-451C-8412-D60F182A8A77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gss.Models", "Gss.Models\Gss.Models.csproj", "{3BAA03AE-E81E-40D6-BBD7-42AA59C8826A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gss.Models", "Gss.Models\Gss.Models.csproj", "{3BAA03AE-E81E-40D6-BBD7-42AA59C8826A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gss.Services.Common", "Gss.Services.Common\Gss.Services.Common.csproj", "{8493B958-4D31-42C6-9B39-0438242FF573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gss.Services.Common", "Gss.Services.Common\Gss.Services.Common.csproj", "{8493B958-4D31-42C6-9B39-0438242FF573}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76043D1D-FE8D-4843-A599-901DF6B1A022}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{92D02D15-E879-41EE-8FD0-9BFD304B93D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +38,11 @@ Global
 		{8493B958-4D31-42C6-9B39-0438242FF573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8493B958-4D31-42C6-9B39-0438242FF573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8493B958-4D31-42C6-9B39-0438242FF573}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3290004A-4FA9-4801-B2FF-945B754C142B}
 	EndGlobalSection
 EndGlobal

@@ -16,14 +16,14 @@ public class LoginController : ControllerBase
         if ( user == null) return BadRequest();
         try
         {
-            //string hashedPassword = new Encrypter().ComputeMD5Hash(user.userpassword);
-            //if (user?.username != "")
-            if (user?.username == "iqdagmawi")
+            string hashedPassword = new Encrypter().ComputeMD5Hash(user.userpassword);
+            if (user?.username != "")
+            //if (user?.username == "iqdagmawi")
             {
-                // User? userObj = _dbContext.Users?.Where(u => u.username == user.username
-                //&& u.userpassword == hashedPassword).FirstOrDefault();
+                 User? userObj = _dbContext.Users?.Where(u => u.username == user.username
+                 && u.userpassword == hashedPassword).FirstOrDefault();
 
-                User? userObj = _dbContext.Users?.Where(u => u.username == user.username).FirstOrDefault();
+                //User? userObj = _dbContext.Users?.Where(u => u.username == user.username).FirstOrDefault();
                 if (userObj != null)
                 {
                     return Ok(userObj);
