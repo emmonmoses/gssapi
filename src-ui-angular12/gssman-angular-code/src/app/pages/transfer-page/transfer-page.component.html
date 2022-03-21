@@ -1,0 +1,55 @@
+<h1>Transfer Marks<button class="ml-4 bord" (click)="signOut()">
+        <mat-icon color="warn" matTooltip="Sign Out">logout</mat-icon>
+    </button>
+</h1>
+
+<mat-progress-bar mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+<form id="f" class="mt-4" [formGroup]="form">
+    <div class="row">
+        <!-- <mat-icon class="mb-4 ml-4">logout</mat-icon> -->
+
+        <mat-form-field appearance="outline" class="col-sm-12">
+            <mat-label>Search Student</mat-label>
+            <input matInput placeholder="Click the search icon to find a Student" formControlName="studentId"
+                name="student" readonly aria-label="studentName" required>
+            <button mat-icon-button matSuffix (click)="search()" [disabled]="studentDisabled">
+                <mat-icon class="cursor-pointer">search</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="column">
+        <mat-form-field appearance="outline" class="col-sm-6">
+            <mat-label>Source Branch</mat-label>
+            <mat-select formControlName="sourceBranch" required>
+                <ng-container *ngFor="let b of branches">
+                    <mat-option [value]="b.name">
+                        {{b.name}}
+                    </mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-sm-6">
+            <mat-label>Destination Branch</mat-label>
+            <mat-select formControlName="destinationBranch" required>
+                <ng-container *ngFor="let b of branches">
+                    <mat-option [value]="b.name">
+                        {{b.name}}
+                    </mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline" class="col-sm-12">
+            <mat-label>Academic Year</mat-label>
+            <mat-select formControlName="academicYear" required>
+                <mat-option [value]="20212022">
+                    2021/2022
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" class="login" (click)="create()">Save</button>
+</form>
